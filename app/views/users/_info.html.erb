@@ -1,0 +1,22 @@
+<h1>User info</h1>
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+
+<a href="/users/:current_user_id/edit" class="btn btn-outline-secondary btn-block">edit</a>
+
+<h1>New book</h1>
+<%= form_with model: book do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Opinion</p>
+  <%= f.text_area :Body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
