@@ -10,7 +10,7 @@
       <table>
         <thead>
           <tr>
-            <th colspan="3"></th>
+            <th></th>
             <th>Title</th>
             <th>Opinion</th>
           </tr>
@@ -18,9 +18,11 @@
         <tbody>
           <% @books.each do |books| %>
             <tr>
-              <th></th>
-              <th><a href=""><%= books.title %></a></th>
-              <th><%= books.body %></th>
+              <td>
+                <%= image_tag books.user.get_profile_image(100,100) %>
+              </td>
+              <td><a href="/books/<%= books.id %>"><%= books.title %></a></td>
+              <td><%= books.body %></td>
             </tr>
           <% end %>
         </tbody>
