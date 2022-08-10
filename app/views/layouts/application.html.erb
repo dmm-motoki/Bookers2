@@ -49,6 +49,9 @@
         </div>
       </nav>
     </header>
+    <% if notice %>
+      <p><%= notice %></p>
+    <% end %>
     <%= yield %>
     <footer>
       <div class="container mt-5">

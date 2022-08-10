@@ -1,7 +1,15 @@
 <div class="container">
+  <% if @book.errors.any? %>
+    <h3 class="mt-3"><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="row">
     <div class="col-3">
-      <%= render '/users/info', book: @book, user: @user %>
+      <%= render '/users/info', book: @book, user: current_user %>
     </div>
 
     <div class="col-8 offset-1">
@@ -19,7 +27,7 @@
           <% @books.each do |books| %>
             <tr>
               <td>
-                <a href="/users/<%= books.user.id %>"><%= image_tag books.user.get_profile_image(100,100) %></a>
+                <a href="/users/<%= books.user.id %>"><%= image_tag books.user.get_profile_image(80,80) %></a>
               </td>
               <td><a href="/books/<%= books.id %>"><%= books.title %></a></td>
               <td><%= books.body %></td>
