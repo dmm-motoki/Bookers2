@@ -19,7 +19,7 @@
           <%= f.submit 'Update Book', class: "btn btn-success mb-3" %>
         </div>
       <% end %>
-      <p><a href="/books/<%= @book.id %>">Show</a> | <%= link_to "Back", books_path %></p>
+      <p><%= link_to 'Show', book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
     </div>
   </div>
 </div>
